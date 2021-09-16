@@ -4,6 +4,8 @@ import { getData, checkIfNext, pushEntities } from "../utils";
 export default class StarWarsUniverse {
     constructor() {
         this.entities = [];
+
+        this.init();
     }
 
     async init() {
