@@ -1,11 +1,11 @@
 import { getData, checkIfNext, pushEntities } from "../utils";
 export default class Entity {
-    constructor(element) { // towa 6e vidim dali trq da e taka
+    constructor(element) { 
         this.name = element[0];
         this.data = [];
         this.__url = element[1];
         this.init();
-        // tuk trqbwa da wkaram wsi4ko ot root elementa i da go nabiq kato danni.
+        
     }
 
     async init() {
@@ -17,8 +17,6 @@ export default class Entity {
             await pushEntities(currentData.results, this.data);
             data = await currentData;
         };
-
-
 
     }
 };
