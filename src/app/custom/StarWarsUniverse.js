@@ -6,27 +6,28 @@ export default class StarWarsUniverse {
         this.entities = [];
 
         this.init();
-    }
+    };
 
     async init() {
         const roots = await getData('https://swapi.boom.dev/api/');
 
         Object.entries(roots).forEach(async (element) => {
-            const entityName = element[0];
+            // console.log(element);
+            // const entityName = element[0];
             
-            let data = await getData(element[1]);
-            const storage = [];
+            // let data = await getData(element[1]);
+            // const storage = [];
 
-            pushEntities(data.results, storage);
+            // pushEntities(data.results, storage);
 
-            while (checkIfNext(data) !== true) {
-                const currentData = await getData(data.next);
-                await pushEntities(currentData.results, storage);
-                data = await currentData;
-            };
+            // while (checkIfNext(data) !== true) {
+            //     const currentData = await getData(data.next);
+            //     await pushEntities(currentData.results, storage);
+            //     data = await currentData;
+            // };
 
-            const entity = new Entity(entityName, storage);
-            this.entities.push(entity);
+            // const entity = new Entity(entityName, storage);
+            this.entities.push(new Entity(element));
 
             // console.log(this.entities);
             
