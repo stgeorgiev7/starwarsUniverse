@@ -8,7 +8,6 @@ export default class StarWarsUniverse {
 
     async init() {
         const roots = await getData('https://swapi.boom.dev/api/');
-        console.log(roots);
         Object.entries(roots).forEach(async (element) => {
             // console.log(element);
             // const entityName = element[0];
@@ -25,7 +24,7 @@ export default class StarWarsUniverse {
             // };
 
             // const entity = new Entity(entityName, storage);
-            this.entities.push(new Entity(element));
+            await this.entities.push(new Entity(element));
             
             
 
