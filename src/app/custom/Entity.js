@@ -4,7 +4,6 @@ export default class Entity {
         this.name = element[0];
         this.data = [];
         this.__url = element[1];
-        this.init();
         
     }
 
