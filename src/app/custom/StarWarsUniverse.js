@@ -25,7 +25,10 @@ export default class StarWarsUniverse {
             // };
 
             // const entity = new Entity(entityName, storage);
-            this.entities.unshift(new Entity(element));
+            this.entities.push(new Entity(element));
+            this.entities.forEach(async (element) => {
+                element.init();
+            });
             
 
             // console.log(this.entities);
