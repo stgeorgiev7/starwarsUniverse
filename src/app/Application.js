@@ -33,8 +33,13 @@ export default class Application extends EventEmitter {
   async init() {
     // Initiate classes and wait for async operations here.
     
+    const universe = await new StarWarsUniverse;
     
-    this.data.universe = await new StarWarsUniverse;
+    setTimeout(() => {
+      this.data.universe = universe;
+      console.log(this.data.universe);
+      
+    }, 4000);
     console.log(this);
     this.emit(Application.events.APP_READY);
   }

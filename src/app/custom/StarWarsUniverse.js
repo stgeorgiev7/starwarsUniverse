@@ -27,7 +27,8 @@ export default class StarWarsUniverse {
             // };
 
             // const entity = new Entity(entityName, storage);
-            this.entities.push(new Entity(element));
+            this.entities.unshift(new Entity(element));
+            
 
             // console.log(this.entities);
             
