@@ -21,7 +21,7 @@ export default class StarWarsUniverse {
 
             while (checkIfNext(data) !== true) {
                 const currentData = await getData(data.next);
-                pushEntities(currentData.results, storage);
+                await pushEntities(currentData.results, storage);
                 data = await currentData;
             };
 
