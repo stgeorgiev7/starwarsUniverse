@@ -5,6 +5,7 @@ export default class Entity {
         this.data = [];
         this.__url = element[1];
         this.init();
+        this.count = 0;
     };
 
     async init() {
@@ -20,5 +21,7 @@ export default class Entity {
             await pushEntities(currentData.results, this.data);
             data = await currentData;
         };
+
+        this.count = this.data.length;
     }
 };
