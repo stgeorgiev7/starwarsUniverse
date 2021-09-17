@@ -8,6 +8,7 @@ export default class StarWarsUniverse {
 
     async init() {
         const roots = await getData('https://swapi.boom.dev/api/');
+        const storage = [];
         Object.entries(roots).forEach(async (element) => {
             // console.log(element);
             // const entityName = element[0];
@@ -24,13 +25,16 @@ export default class StarWarsUniverse {
             // };
 
             // const entity = new Entity(entityName, storage);
-            await this.entities.push(new Entity(element));
+            await storage.push(new Entity(element));
             
             
 
             // console.log(this.entities);
             
         });
+        console.log(storage);
+
+        this.entities = storage;
         //sled kato imam dannite na roots, s object Entryies 6e vikam Entity klasa i 6e pylna vsi4ko v this.entity
 
         
