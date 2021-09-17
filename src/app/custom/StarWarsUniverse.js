@@ -3,7 +3,7 @@ import { getData, checkIfNext, pushEntities } from "../utils";
 
 export default class StarWarsUniverse {
     constructor() {
-        this.entities;
+        this.entities = [1, 1, 1, 1, 1, 1];
     };
 
     async init() {
@@ -25,16 +25,13 @@ export default class StarWarsUniverse {
             // };
 
             // const entity = new Entity(entityName, storage);
-            await storage.push(new Entity(element));
-            
-            
+
+            this.entities.shift();
+            await this.entities.push(new Entity(element));
 
             // console.log(this.entities);
             
         });
-        console.log(storage);
-
-        this.entities = storage;
         //sled kato imam dannite na roots, s object Entryies 6e vikam Entity klasa i 6e pylna vsi4ko v this.entity
 
         
