@@ -5,7 +5,7 @@ export default class Entity {
         this.data = [];
         this.__url = element[1];
         this.init();
-        this.count = 0;
+        
     };
 
     async init() {
@@ -22,6 +22,6 @@ export default class Entity {
             data = await currentData;
         };
 
-        this.count = this.data.length;
+        this.data.count = this.data.length;
     }
 };
