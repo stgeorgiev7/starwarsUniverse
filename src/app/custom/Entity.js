@@ -10,12 +10,15 @@ export default class Entity {
     async init() {
         let data = await getData(this.__url);
         pushEntities(data.results, this.data);
-        
+        await this.fillData(data); 
+
+    };
+
+    async fillData(data) {
         while (checkIfNext(data) !== true) {
             const currentData = await getData(data.next);
             await pushEntities(currentData.results, this.data);
             data = await currentData;
         };
-
-    };
+    }
 };
