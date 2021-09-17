@@ -3,36 +3,15 @@ import { getData, checkIfNext, pushEntities } from "../utils";
 
 export default class StarWarsUniverse {
     constructor() {
-        this.entities = [1, 1, 1, 1, 1, 1];
+        this.entities = [];
     };
 
     async init() {
         const roots = await getData('https://swapi.boom.dev/api/');
-        const storage = [];
-        Object.entries(roots).forEach(async (element) => {
-            // console.log(element);
-            // const entityName = element[0];
-            
-            // let data = await getData(element[1]);
-            // const storage = [];
-
-            // pushEntities(data.results, storage);
-
-            // while (checkIfNext(data) !== true) {
-            //     const currentData = await getData(data.next);
-            //     await pushEntities(currentData.results, storage);
-            //     data = await currentData;
-            // };
-
-            // const entity = new Entity(entityName, storage);
-
-            this.entities.shift();
+        await Object.entries(roots).forEach(async (element) => {
             await this.entities.push(new Entity(element));
-
-            // console.log(this.entities);
             
         });
-        //sled kato imam dannite na roots, s object Entryies 6e vikam Entity klasa i 6e pylna vsi4ko v this.entity
 
         
 
